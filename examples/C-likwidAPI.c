@@ -42,7 +42,7 @@ int main(int argc, char* argv[])
     int* cpus;
     int gid;
     double result = 0.0;
-    char estr[] = "L2_LINES_IN_ALL:PMC0,L2_TRANS_L2_WB:PMC1";
+    char *estr = argv[1];//"L2_LINES_IN_ALL:PMC0,L2_TRANS_L2_WB:PMC1";
     //perfmon_setVerbosity(3);
     // Load the topology module and print some values.
     err = topology_init();
@@ -72,7 +72,7 @@ int main(int argc, char* argv[])
     // Must be called before perfmon_init() but only if you want to use another
     // access mode as the pre-configured one. For direct access (0) you have to
     // be root.
-    //accessClient_setaccessmode(0);
+    HPMmode(ACCESSMODE_DAEMON);
 
     // Initialize the perfmon module.
     err = perfmon_init(topo->numHWThreads, cpus);
@@ -112,7 +112,7 @@ int main(int argc, char* argv[])
         return 1;
     }
     // Perform something
-    sleep(10);
+    sleep(3);
     // Stop all counters in the previously started event set.
     err = perfmon_stopCounters();
     if (err < 0)

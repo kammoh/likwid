@@ -30,6 +30,8 @@
 #ifndef ACCESS_H
 #define ACCESS_H
 
+#include "pci_types.h"
+
 void HPMmode(int mode);
 int HPMinit(void);
 int HPMinitialized(void);

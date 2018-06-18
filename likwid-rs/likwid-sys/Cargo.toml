@@ -1,0 +1,12 @@
+[package]
+name = "likwid-sys"
+version = "0.1.0"
+authors = ["Kamyar Mohajerani <kammoh@gmail.com>"]
+links = "likwid"
+build = "build.rs"
+
+[dependencies]
+libc = "0.2"
+
+[build-dependencies]
+bindgen = "0.37"

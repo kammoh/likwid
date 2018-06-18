@@ -37,6 +37,8 @@
 
 #include <bstrlib.h>
 
+#include "pci_types.h"
+
 #define DEBUGLEV_ONLY_ERROR 0
 #define DEBUGLEV_INFO 1
 #define DEBUGLEV_DETAIL 2
@@ -253,6 +255,15 @@ Close the connections to the MSR/PCI files or the access daemon
 */
 extern void HPMfinalize() __attribute__ ((visibility ("default") ));
 /** @}*/
+
+
+
+extern int HPMinitialized(void) __attribute__ ((visibility ("default") ));
+extern int HPMread(int cpu_id, PciDeviceIndex dev, uint32_t reg, uint64_t* data) __attribute__ ((visibility ("default") ));
+extern int HPMwrite(int cpu_id, PciDeviceIndex dev, uint32_t reg, uint64_t data) __attribute__ ((visibility ("default") ));
+extern int HPMcheck(PciDeviceIndex dev, int cpu_id) __attribute__ ((visibility ("default") ));
+
+
 
 /*
 ################################################################################

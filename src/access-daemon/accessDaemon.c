@@ -172,6 +172,19 @@ void __attribute__((constructor (101))) init_accessdaemon(void)
         FD_PCI[i] = malloc(MAX_NUM_PCI_DEVICES * sizeof(int));
         //memset(FD_PCI[i], 0, MAX_NUM_PCI_DEVICES * sizeof(int));
     }
+
+    FILE * rdpmc_file = fopen("/sys/bus/event_source/devices/cpu/rdpmc", "wb");
+    if(rdpmc_file){
+        fputc('2', rdpmc_file);
+        fclose(rdpmc_file);
+    }
+
+    FILE * nmi_watchdog_file = fopen("/proc/sys/kernel/nmi_watchdog", "wb");
+    if(nmi_watchdog_file){
+        fputc('0', nmi_watchdog_file);
+        fclose(nmi_watchdog_file);
+    }
+
 }
 
 void __attribute__((destructor (101))) close_accessdaemon(void)

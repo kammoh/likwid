@@ -34,6 +34,9 @@ MAKE_DIR    = ./make
 
 Q         ?= @
 
+CFLAGS="-std=c99 -Wall -march=native -mtune=native -Os -fomit-frame-pointer -g0"
+CXXFLAGS="-std=c++14 -Wall -march=native -mtune=native -Os -fomit-frame-pointer -g0"
+
 #DO NOT EDIT BELOW
 
 # Dependency chains:

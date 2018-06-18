@@ -1,0 +1,8 @@
+[package]
+name = "likwid"
+version = "0.1.0"
+authors = ["Kamyar Mohajerani <kammoh@gmail.com>"]
+
+[dependencies]
+likwid-sys = { path = "likwid-sys" }
+libc = "0.2"

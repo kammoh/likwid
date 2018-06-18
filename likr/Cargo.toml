@@ -1,0 +1,7 @@
+[package]
+name = "likr"
+version = "0.1.0"
+authors = ["Kamyar Mohajerani <kammoh@gmail.com>"]
+
+[dependencies]
+likwid = { path = "../likwid-rs" }
